@@ -34,12 +34,8 @@ api-server
 	..use cors do
 		credentials: on
 		origin:
-			* 'https://misskey.xyz'
-			* 'https://misskey.xyz:1206'
-			* 'http://misskey.xyz'
-			* 'http://misskey.xyz:1206'
-			* 'http://dev.misskey.xyz'
-			* 'http://dev.misskey.xyz:1205'
+			* config.public-config.url
+			* config.public-config.dev-url
 	..use body-parser.urlencoded {+extended}
 	..use multer!
 	..use cookie-parser config.cookie-pass

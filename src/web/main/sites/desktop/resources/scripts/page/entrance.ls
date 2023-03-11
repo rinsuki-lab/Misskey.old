@@ -104,7 +104,7 @@ function init-register-form
 			hide-message!
 			sn = $input .val!
 			
-			$ '.profile-page-url-preview' .text "https://misskey.xyz/#sn"
+			$ '.profile-page-url-preview' .text location.origin + "/#sn"
 
 			if sn != ''
 				err = switch

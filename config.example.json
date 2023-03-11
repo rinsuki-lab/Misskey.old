@@ -1,0 +1,35 @@
+{
+  "port": {
+    "streaming": 2000,
+    "webHttp": 3000,
+    "webStreaming": 3001
+  },
+  "publicConfig": {
+    "themeColor": "#0e91bc",
+    "env": "production",
+    "domain": "misskey.xyz",
+    "hostname": "misskey.xyz",
+    "url": "http://misskey.xyz",
+    "apiUrl": "http://api.misskey.xyz",
+    "devUrl": "http://dev.misskey.xyz",
+    "imageServerUrl": "http://img.misskey.xyz",
+    "webStreamingUrl": "http://api.misskey.xyz:2000",
+    "productionChannelUrl": "http://misskey.xyz",
+    "developmentChannelUrl": "javascript:alert('not supported')"
+  },
+  "cookiePass": "cookie-secret",
+  "sessionKey": "misskey.old.session",
+  "sessionSecret": "session-secret",
+  "webClientId": "web-client",
+  "mongo": {
+    "uri": "mongodb://db/misskey_old",
+    "options": {}
+  },
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
+  "imageServerIp": "img",
+  "imageServerUrl": "https://img.misskey.xyz",
+  "imageServerPasskey": "image-passkey"
+}

@@ -41,8 +41,8 @@ app.all '*' (req, res, next) ->
 		# Log
 		ua = req.headers['user-agent'].to-lower-case!
 		type = switch (req.hostname)
-			| \misskey.xyz => \web
-			| \api.misskey.xyz => \api
+			| config.public-config.domain => \web
+			| "api." + config.public-config.domain => \api
 		publish-redis-streaming \log to-json {
 			type: type
 			value:
@@ -63,11 +63,11 @@ api-server = require "#__dirname/api" .server
 #streaming-server = require "#__dirname/api/streaming" .server
 #web-streaming-server = require "#__dirname/api/web-streaming-server" .server
 dev-server = require "#__dirname/web/dev" .server
-app.use vhost \misskey.xyz main-server
-app.use vhost \api.misskey.xyz api-server
+app.use vhost config.public-config.domain, main-server
+app.use vhost "api." + config.public-config.domain, api-server
 #app.use vhost \web-streaming.misskey.xyz web-streaming-server
 #app.use vhost \streaming.misskey.xyz streaming-server
-app.use vhost \dev.misskey.xyz dev-server
+app.use vhost "dev." + config.public-config.domain, dev-server
 
 require "#__dirname/api/web-streaming-server"
 require "#__dirname/api/streaming"
